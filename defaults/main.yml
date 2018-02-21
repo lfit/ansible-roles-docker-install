@@ -1,2 +1,2 @@
 ---
-# defaults file for docker-install
+mtu: 1500
