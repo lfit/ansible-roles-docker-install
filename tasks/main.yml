@@ -1,2 +1,70 @@
 ---
-# tasks file for docker-install
+- name: Install Docker (RedHat)
+  block:
+    - name: Install Docker requirements
+      yum: 'name={{item}} state=present'
+      with_items:
+        - device-mapper-persistent-data
+        - lvm2
+    - name: Add Docker repository
+      get_url:
+        url: https://download.docker.com/linux/centos/docker-ce.repo
+        dest: /etc/yum.repos.d/docker-ce.repo
+        mode: 0644
+    - name: Install Docker CE
+      yum: name=docker-ce state=present update_cache=yes
+  when: ansible_os_family == 'RedHat'
+  become: true
+
+- name: Install Docker (Ubuntu)
+  block:
+    - name: Install Docker requirements
+      apt: 'name=apt-transport-https state=present'
+    - name: Add Docker apt-key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+    - name: Add Docker apt-repository
+      apt_repository:
+        repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable'
+        state: present
+    - name: Install Docker CE
+      apt: name=docker-ce state=present update_cache=yes
+  when: ansible_distribution == 'Ubuntu'
+  become: true
+
+- name: Copy LF Docker configuration
+  block:
+    - name: Ensure /etc/docker directory exists
+      file:
+        path: /etc/docker
+        state: directory
+        mode: 0700
+    - name: Copy LF Docker configuration
+      copy:
+        src: daemon.json
+        dest: /etc/docker/daemon.json
+        owner: root
+        group: root
+      mode: 0600
+    - name: 'Set mtu to {{mtu}}'
+      lineinfile:
+        path: /etc/docker/daemon.json
+        regexp: '^  "mtu":'
+        line: '  "mtu": {{mtu}},'
+  become: true
+
+# The systemd file on Ubuntu system passes `-H fd://` which seems to break
+# and prevent Docker from coming online. Use the same ExecStart line as
+# Docker CE CentOS does to fix the file.
+- name: Fix broken systemd file on Ubuntu
+  lineinfile:
+    path: /lib/systemd/system/docker.service
+    regexp: '^ExecStart='
+    line: 'ExecStart=/usr/bin/dockerd'
+  when: ansible_distribution == 'Ubuntu'
+  become: true
+
+- name: Enable Docker service
+  service: name=docker enabled=true
+  become: true
