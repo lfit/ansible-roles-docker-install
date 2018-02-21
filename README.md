@@ -11,7 +11,7 @@ None.
 Role Variables
 --------------
 
-None.
+mtu: Configures the mtu to assign to the Docker port.
 
 Dependencies
 ------------
