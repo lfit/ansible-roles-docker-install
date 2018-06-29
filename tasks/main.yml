@@ -22,10 +22,14 @@
         dest: /etc/yum.repos.d/docker-ce.repo
         mode: 0644
     - name: Install Docker CE
+<<<<<<< HEAD
       yum:
         name: docker-ce
         state: present
         update_cache: true
+=======
+      yum: 'name=docker-ce={{docker_version}} state=present update_cache=yes'
+>>>>>>> Parameterize docker version and arch
   when: ansible_os_family == 'RedHat'
   become: true
 
@@ -39,6 +43,7 @@
         state: present
     - name: Add Docker apt-repository
       apt_repository:
+<<<<<<< HEAD
         repo: 'deb [arch={{host_arch}}] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable'
         state: present
     - name: Install Docker CE
@@ -46,6 +51,12 @@
         name: docker-ce
         state: present
         update_cache: true
+=======
+        repo: 'deb [arch={{arch}}] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable'
+        state: present
+    - name: Install Docker CE
+      apt: 'name=docker-ce={{docker_version}} state=present update_cache=yes'
+>>>>>>> Parameterize docker version and arch
   when: ansible_distribution == 'Ubuntu'
   become: true
 
