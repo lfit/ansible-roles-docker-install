@@ -1,2 +1,4 @@
 ---
 mtu: 1500
+docker_version: 18.03.1
+arch: amd64
