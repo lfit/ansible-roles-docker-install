@@ -46,6 +46,8 @@
         name: docker-ce
         state: present
         update_cache: true
+    - name: Install Docker CE
+      apt: 'name=docker-ce={{docker_version}} state=present update_cache=yes'
   when: ansible_distribution == 'Ubuntu'
   become: true
 
