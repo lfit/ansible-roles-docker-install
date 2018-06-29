@@ -1,2 +1,4 @@
 ---
 mtu: 1500
+docker_version: 
+arch: amd64
