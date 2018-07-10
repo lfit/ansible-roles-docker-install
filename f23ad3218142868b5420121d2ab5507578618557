@@ -1,0 +1,7 @@
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Code-Review+2: Thanh Ha <thanh.ha@linuxfoundation.org>
+Submitted-by: Thanh Ha <thanh.ha@linuxfoundation.org>
+Submitted-at: Tue, 10 Jul 2018 17:38:45 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/11715
+Project: ansible/roles/docker-install
+Branch: refs/heads/master
