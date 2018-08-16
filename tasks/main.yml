@@ -1,4 +1,14 @@
 ---
+- name: "Checking for x86_64"
+  set_fact:
+    host_arch: "amd64"
+  when: "'x86_64' in ansible_architecture"
+
+- name: "Checking for aarch64"
+  set_fact:
+    host_arch: "armhf"
+  when: "'aarch64' in ansible_architecture"
+
 - name: Install Docker (RedHat)
   block:
     - name: Install Docker requirements
@@ -12,7 +22,10 @@
         dest: /etc/yum.repos.d/docker-ce.repo
         mode: 0644
     - name: Install Docker CE
-      yum: name=docker-ce state=present update_cache=yes
+      yum:
+        name: docker-ce
+        state: present
+        update_cache: yes
   when: ansible_os_family == 'RedHat'
   become: true
 
@@ -26,10 +39,13 @@
         state: present
     - name: Add Docker apt-repository
       apt_repository:
-        repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable'
+        repo: 'deb [arch={{host_arch}}] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable'
         state: present
     - name: Install Docker CE
-      apt: name=docker-ce state=present update_cache=yes
+      apt:
+        name: docker-ce
+        state: present
+        update_cache: yes
   when: ansible_distribution == 'Ubuntu'
   become: true
 
