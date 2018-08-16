@@ -46,6 +46,30 @@
       "revId": "86d3b045788b6bcf7022370f8fa79b8b14778830",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9318f195_df1cae9a",
+        "filename": "tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-08-16T20:00:14Z",
+      "side": 1,
+      "message": "I ask because both are valid ways to say the same arch. So we need to make sure if ansible picks up the same version that the distro is expecting.",
+      "parentUuid": "573d0528_e338004d",
+      "range": {
+        "startLine": 29,
+        "startChar": 27,
+        "endLine": 29,
+        "endChar": 47
+      },
+      "revId": "86d3b045788b6bcf7022370f8fa79b8b14778830",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
