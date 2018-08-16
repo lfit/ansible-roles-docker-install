@@ -70,6 +70,30 @@
       "revId": "86d3b045788b6bcf7022370f8fa79b8b14778830",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f922d60_cb54991d",
+        "filename": "tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-08-16T20:04:41Z",
+      "side": 1,
+      "message": "How are you testing this if you have no access to an arm machine?\n\nThere\u0027s 2 architectures we need to support:\n\n- x86_64 / amd64 (need to make sure we understand which method ansible picks)\n- arm64\n\nBoth of these architectures are available in Vexxhost.",
+      "parentUuid": "9318f195_df1cae9a",
+      "range": {
+        "startLine": 29,
+        "startChar": 27,
+        "endLine": 29,
+        "endChar": 47
+      },
+      "revId": "86d3b045788b6bcf7022370f8fa79b8b14778830",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
