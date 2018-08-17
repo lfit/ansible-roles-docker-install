@@ -1,2 +1,4 @@
 ---
 mtu: 1500
+# This is the latest stable version as of 8-17-8
+docker_version: 18.03.1-ce
