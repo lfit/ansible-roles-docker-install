@@ -67,4 +67,5 @@
 
 - name: Enable Docker service
   service: name=docker enabled=true
+  when: haveged_service_enable
   become: true

@@ -6,14 +6,16 @@ driver:
 lint:
   name: yamllint
 platforms:
-  # Disable centos7 tests until we figure out how to get systemctl working
-  # in a Docker container reliabily.
-  # - name: centos7
-  #   image: centos:7
+  - name: centos7
+    image: centos:7
   - name: ubuntu1604
     image: ubuntu:16.04
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      centos:
+        haveged_service_enable: false
   lint:
     name: ansible-lint
 scenario:
