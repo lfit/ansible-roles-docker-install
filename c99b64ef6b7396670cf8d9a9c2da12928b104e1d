@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5dfb774e_09c44f89",
+        "filename": "tasks/main.yml",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-09-11T15:15:51Z",
+      "side": 1,
+      "message": "Accidental unindent. It changes the meaning of these keywords.",
+      "revId": "c99b64ef6b7396670cf8d9a9c2da12928b104e1d",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3fbaf32_5347ca60",
+        "filename": "tasks/main.yml",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-09-11T15:15:51Z",
+      "side": 1,
+      "message": "I wonder if we can make the version optional somehow. I know we need the \"-\" to set version though so I\u0027m not sure if there\u0027s an easy way around that.",
+      "revId": "c99b64ef6b7396670cf8d9a9c2da12928b104e1d",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}

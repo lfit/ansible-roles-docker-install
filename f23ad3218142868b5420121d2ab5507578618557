@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "609b4987_b55d1759",
+        "filename": "tasks/main.yml",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-09-11T15:15:51Z",
+      "side": 0,
+      "message": "Looks like you accidently u",
+      "revId": "f23ad3218142868b5420121d2ab5507578618557",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
