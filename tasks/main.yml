@@ -23,7 +23,7 @@
         mode: 0644
     - name: Install Docker CE
       yum:
-        name: docker-ce
+        name: 'docker-ce={{docker_version}}'
         state: present
         update_cache: true
   when: ansible_os_family == 'RedHat'
@@ -43,7 +43,7 @@
         state: present
     - name: Install Docker CE
       apt:
-        name: docker-ce
+        name: 'docker-ce={{docker_version}}'
         state: present
         update_cache: true
   when: ansible_distribution == 'Ubuntu'
