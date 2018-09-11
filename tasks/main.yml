@@ -9,6 +9,20 @@
     host_arch: "armhf"
   when: "'aarch64' in ansible_architecture"
 
+- name: "Checking for Centos docker version"
+  set_fact:
+    docker_centos_name: 'docker-ce-{{centos_docker_version}}'
+  when:
+    - ansible_os_family == 'RedHat'
+    - centos_docker_version is defined
+
+- name: "Checking for Ubuntu docker version"
+  set_fact:
+    docker_ubuntu_name: 'docker-ce={{ubuntu_docker_version}}'
+  when:
+    - ansible_distribution == 'Ubuntu'
+    - ubuntu_docker_version is defined
+
 - name: Install Docker (RedHat)
   block:
     - name: Install Docker requirements
@@ -23,7 +37,7 @@
         mode: 0644
     - name: Install Docker CE
       yum:
-        name: docker-ce
+        name: '{{docker_centos_name}}'
         state: present
         update_cache: true
   when: ansible_os_family == 'RedHat'
@@ -48,7 +62,7 @@
         state: present
     - name: Install Docker CE
       apt:
-        name: docker-ce
+        name: '{{docker_ubuntu_name}}'
         state: present
         update_cache: true
   when: ansible_distribution == 'Ubuntu'
