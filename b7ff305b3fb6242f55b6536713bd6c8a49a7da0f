@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca9b82dc_d9acb98e",
+        "filename": "tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-09-11T19:55:50Z",
+      "side": 1,
+      "message": "To do curly brace substitutions you need to wrap it inside single quotes. This line should be written as:\n\n name: \u0027docker-ce-{{docker_version}}\u0027",
+      "range": {
+        "startLine": 26,
+        "startChar": 24,
+        "endLine": 26,
+        "endChar": 42
+      },
+      "revId": "b7ff305b3fb6242f55b6536713bd6c8a49a7da0f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
