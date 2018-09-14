@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4324a085_393ebfd1",
+        "filename": "defaults/main.yml",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-09-14T16:47:16Z",
+      "side": 1,
+      "message": "unnecessary new line.",
+      "revId": "1b45e2560c9029a14bb6e8ef074cfdc17b259ae6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
