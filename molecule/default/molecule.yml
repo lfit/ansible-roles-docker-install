@@ -10,14 +10,27 @@ platforms:
     image: centos:7
     groups:
       - centos
+  - name: centos7-version
+    image: centos:7
+    groups:
+      - centos
+      - centos_version
   - name: ubuntu1604
     image: ubuntu:16.04
+  - name: ubuntu1604-version
+    image: ubuntu:16.04
+    groups:
+      - ubuntu_version
 provisioner:
   name: ansible
   inventory:
     group_vars:
       centos:
         docker_service_enable: false
+      centos_version:
+        centos_docker_version: 18.06.1.ce
+      ubuntu_version:
+        ubuntu_docker_version: 18.06.1~ce~3-0~ubuntu
   lint:
     name: ansible-lint
 scenario:
