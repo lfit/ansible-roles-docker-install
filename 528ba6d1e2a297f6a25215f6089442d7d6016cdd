@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d40f0eed_37a51049",
+        "filename": "tasks/main.yml",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-09-14T19:04:53Z",
+      "side": 1,
+      "message": "I see this variable used with the Debian (Ubuntu) Install. Do they really use armhf for the arch and not aarch64???",
+      "range": {
+        "startLine": 9,
+        "startChar": 16,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "528ba6d1e2a297f6a25215f6089442d7d6016cdd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbfbdb06_c95ab887",
+        "filename": "tasks/main.yml",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-09-14T19:04:53Z",
+      "side": 1,
+      "message": "Since you\u0027re modifying this in this change, why have I31d84ac1eb8e40c829247dc194d24197dc019508 then change this up to allow end user override? Seems like you should merge these changes together.",
+      "range": {
+        "startLine": 26,
+        "startChar": 14,
+        "endLine": 26,
+        "endChar": 23
+      },
+      "revId": "528ba6d1e2a297f6a25215f6089442d7d6016cdd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7623009_43b43d5f",
+        "filename": "tasks/main.yml",
+        "patchSetId": 8
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-09-14T19:04:53Z",
+      "side": 1,
+      "message": "Since you\u0027re modifying this in this change, why have I31d84ac1eb8e40c829247dc194d24197dc019508 then change this up to allow end user override? Seems like you should merge these changes together.",
+      "range": {
+        "startLine": 51,
+        "startChar": 14,
+        "endLine": 51,
+        "endChar": 23
+      },
+      "revId": "528ba6d1e2a297f6a25215f6089442d7d6016cdd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
