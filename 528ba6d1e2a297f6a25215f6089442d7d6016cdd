@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "34c51afb_e32a160c",
+        "filename": "tasks/main.yml",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 68
+      },
+      "writtenOn": "2018-09-14T19:08:34Z",
+      "side": 1,
+      "message": "That\u0027s my take from here https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1",
+      "parentUuid": "d40f0eed_37a51049",
+      "range": {
+        "startLine": 9,
+        "startChar": 16,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "528ba6d1e2a297f6a25215f6089442d7d6016cdd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbfbdb06_c95ab887",
         "filename": "tasks/main.yml",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "82a9a4e8_c57ee3a9",
+        "filename": "tasks/main.yml",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 68
+      },
+      "writtenOn": "2018-09-14T19:08:34Z",
+      "side": 1,
+      "message": "This was done just to get the existing all off of one line.",
+      "parentUuid": "fbfbdb06_c95ab887",
+      "range": {
+        "startLine": 26,
+        "startChar": 14,
+        "endLine": 26,
+        "endChar": 23
+      },
+      "revId": "528ba6d1e2a297f6a25215f6089442d7d6016cdd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7623009_43b43d5f",
         "filename": "tasks/main.yml",
         "patchSetId": 8
@@ -59,6 +107,30 @@
       "writtenOn": "2018-09-14T19:04:53Z",
       "side": 1,
       "message": "Since you\u0027re modifying this in this change, why have I31d84ac1eb8e40c829247dc194d24197dc019508 then change this up to allow end user override? Seems like you should merge these changes together.",
+      "range": {
+        "startLine": 51,
+        "startChar": 14,
+        "endLine": 51,
+        "endChar": 23
+      },
+      "revId": "528ba6d1e2a297f6a25215f6089442d7d6016cdd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e572dbcd_47adbd3b",
+        "filename": "tasks/main.yml",
+        "patchSetId": 8
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 68
+      },
+      "writtenOn": "2018-09-14T19:08:34Z",
+      "side": 1,
+      "message": "This was done just to get the existing all off of one line.",
+      "parentUuid": "c7623009_43b43d5f",
       "range": {
         "startLine": 51,
         "startChar": 14,
