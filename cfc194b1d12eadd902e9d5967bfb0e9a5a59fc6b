@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9baba8c6_4ca6ca41",
+        "filename": "tasks/main.yml",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-09-17T19:11:32Z",
+      "side": 1,
+      "message": "You don\u0027t need with_items for apt. It supports a named list directly:\n\n apt:\n   name:\n     - apt-transport-https\n     - ca-certificates\n     - curl\n     - software-properties-common\n   state: present\n\nThis runs much faster than with_items as well.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 36
+      },
+      "revId": "cfc194b1d12eadd902e9d5967bfb0e9a5a59fc6b",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
