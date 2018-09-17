@@ -1,0 +1,8 @@
+Code-Review+2: Thanh Ha (zxiiro) <thanh.ha@linuxfoundation.org>
+Code-Review+2: Andrew Grimberg <agrimberg@linuxfoundation.org>
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Submitted-by: Jeremy Phelps <jphelps@linuxfoundation.org>
+Submitted-at: Mon, 17 Sep 2018 20:54:40 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/12286
+Project: ansible/roles/docker-install
+Branch: refs/heads/master
