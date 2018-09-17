@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "9e74fb6d_f2b650ed",
+        "filename": "tasks/main.yml",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 68
+      },
+      "writtenOn": "2018-09-17T19:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82a9a4e8_c57ee3a9",
+      "range": {
+        "startLine": 26,
+        "startChar": 14,
+        "endLine": 26,
+        "endChar": 23
+      },
+      "revId": "528ba6d1e2a297f6a25215f6089442d7d6016cdd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7623009_43b43d5f",
         "filename": "tasks/main.yml",
         "patchSetId": 8
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "This was done just to get the existing all off of one line.",
       "parentUuid": "c7623009_43b43d5f",
+      "range": {
+        "startLine": 51,
+        "startChar": 14,
+        "endLine": 51,
+        "endChar": 23
+      },
+      "revId": "528ba6d1e2a297f6a25215f6089442d7d6016cdd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16faad9b_28132525",
+        "filename": "tasks/main.yml",
+        "patchSetId": 8
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 68
+      },
+      "writtenOn": "2018-09-17T19:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e572dbcd_47adbd3b",
       "range": {
         "startLine": 51,
         "startChar": 14,
