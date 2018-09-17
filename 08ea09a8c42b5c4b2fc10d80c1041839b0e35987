@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81904cd6_03a3b4c2",
+        "filename": "tasks/main.yml",
+        "patchSetId": 13
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-09-17T19:17:01Z",
+      "side": 1,
+      "message": "state: present to under name.\n\nRemove name\u003d{{item}}\n\nthis line should just be \"yum:\"",
+      "revId": "08ea09a8c42b5c4b2fc10d80c1041839b0e35987",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d9f33c_06e24401",
+        "filename": "tasks/main.yml",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-09-17T19:17:01Z",
+      "side": 1,
+      "message": "Move state: present to under the name list below.\n\nremove name\u003d{{item}}\n\nit should just be \"apt:\" on this line.",
+      "revId": "08ea09a8c42b5c4b2fc10d80c1041839b0e35987",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
