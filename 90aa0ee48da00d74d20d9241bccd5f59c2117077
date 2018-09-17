@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc708643_bb754cec",
+        "filename": "tasks/main.yml",
+        "patchSetId": 12
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-09-17T19:15:08Z",
+      "side": 1,
+      "message": "yum supports a list of packages, no need to use with_items. Plus with_items is very slow compared to passing a list directly.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 14
+      },
+      "revId": "90aa0ee48da00d74d20d9241bccd5f59c2117077",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32c1f26c_d4586973",
+        "filename": "tasks/main.yml",
+        "patchSetId": 12
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-09-17T19:15:08Z",
+      "side": 1,
+      "message": "apt supports a list of packages, no need to use with_items. Plus with_items is very slow compared to passing a list directly.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 36
+      },
+      "revId": "90aa0ee48da00d74d20d9241bccd5f59c2117077",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
