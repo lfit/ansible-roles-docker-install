@@ -21,6 +21,12 @@ platforms:
     image: ubuntu:16.04
     groups:
       - ubuntu_version
+  - name: ubuntu1804
+    image: ubuntu:18.04
+  - name: ubuntu1804-version
+    image: ubuntu:18.04
+    groups:
+      - ubuntu_version
 provisioner:
   name: ansible
   inventory:
