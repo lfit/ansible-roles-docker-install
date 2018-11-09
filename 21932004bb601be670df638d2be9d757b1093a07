@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a285a67_db51b816",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-11-09T18:52:46Z",
+      "side": 1,
+      "message": "Actually I\u0027m confused now.\n\nThe problem with Ubuntu systems is that Ubuntu is setting the \"-H\" flag which breaks us.\n\nThe code currently explicitly sets systemd unit to remove the -H flag on ALL Ubuntu systems so would cover 18.09 too.\n\nThe proposed code would make the systemd unit get modified for CentOS systems which we don\u0027t need this patch for.",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "21932004bb601be670df638d2be9d757b1093a07",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
