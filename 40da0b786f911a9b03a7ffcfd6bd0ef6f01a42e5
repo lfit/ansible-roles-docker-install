@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33f3b651_03b17ee1",
+        "filename": "tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-11-09T18:49:43Z",
+      "side": 0,
+      "message": "We use this same file for Ubuntu 16.04 and 18.04 so this change will break our older supported systems.\n\nCan we improve the check to say when ansible_distribution_version \u003c 18.09 ?",
+      "revId": "40da0b786f911a9b03a7ffcfd6bd0ef6f01a42e5",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
