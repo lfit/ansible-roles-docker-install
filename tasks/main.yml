@@ -99,7 +99,6 @@
     path: /lib/systemd/system/docker.service
     regexp: '^ExecStart='
     line: 'ExecStart=/usr/bin/dockerd'
-  when: ansible_distribution == 'Ubuntu'
   become: true
 
 - name: Enable Docker service
