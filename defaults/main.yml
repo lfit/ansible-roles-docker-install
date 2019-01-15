@@ -3,4 +3,5 @@ docker_service_enable: true
 mtu: 1500
 docker_ce_name: docker-ce
 ubuntu_docker_version: latest
+ubuntu_arm64_docker_version: latest
 centos_docker_version: latest
