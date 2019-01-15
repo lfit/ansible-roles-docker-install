@@ -23,13 +23,6 @@
     - ansible_distribution == 'Ubuntu'
     - ubuntu_docker_version != 'latest'
 
-- name: "Checking for Ubuntu arm64 docker version"
-  set_fact:
-    docker_ce_name: 'docker-ce={{ubuntu_arm64_docker_version}}'
-  when:
-    - ansible_distribution == 'Ubuntu'
-    - ubuntu_docker_version != 'latest'
-
 - name: Install Docker (RedHat)
   block:
     - name: Install Docker requirements
@@ -67,7 +60,7 @@
         state: present
     - name: Add Docker apt-repository
       apt_repository:
-        repo: 'deb [arch={{host_arch}}] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} edge'
+        repo: 'deb [arch={{host_arch}}] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} {{docker_repo_channel}}'
         state: present
     - name: Install Docker CE
       apt:
@@ -75,6 +68,8 @@
         state: present
         update_cache: true
   when: ansible_distribution == 'Ubuntu'
+  become: true
+  when: release_version == 'edge'
   become: true
 
 - name: Copy LF Docker configuration
