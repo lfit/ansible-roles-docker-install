@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c01ce6c1_fbbd2b46",
+        "filename": "tasks/main.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2019-01-16T23:13:12Z",
+      "side": 1,
+      "message": "\"become\" regards privilege escalation, and does not need to be set twice. I believe what you want with this change is to add a task that checks the Ubuntu version, and uses set_fact to set docker_repo_channel to \"edge\" if it\u0027s \u003e\u003d18.04. This should be quite similar to the \"Checking for Ubuntu docker version\" task.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 14
+      },
+      "revId": "eeefbcec4bc3afce239cc6aad665688f490e3a50",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
