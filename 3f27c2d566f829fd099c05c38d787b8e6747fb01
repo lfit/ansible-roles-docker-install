@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8bf1a69d_687fb20b",
+        "filename": "tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2019-01-16T23:45:12Z",
+      "side": 1,
+      "message": "You already have a CR submitted here:\nhttps://gerrit.linuxfoundation.org/infra/#/c/14228\n\nI\u0027d amend the change and update the patchset instead of submitting a new one. \n\nhttps://docs.releng.linuxfoundation.org/en/latest/git.html",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 28
+      },
+      "revId": "3f27c2d566f829fd099c05c38d787b8e6747fb01",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bd52383_4151b619",
+        "filename": "tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2019-01-16T23:45:12Z",
+      "side": 1,
+      "message": "remove white spaces.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 2
+      },
+      "revId": "3f27c2d566f829fd099c05c38d787b8e6747fb01",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
