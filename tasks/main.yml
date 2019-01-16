@@ -69,6 +69,16 @@
         update_cache: true
   when: ansible_distribution == 'Ubuntu'
   become: true
+  when: docker_repo_channel: 'edge'
+  become: true
+
+- name: "Checking for Docker repo channel"
+  set_fact:
+    docker_repo_channel: 'edge'
+  when:
+    - ansible_distribution == 'Ubuntu'
+    - ansible_distribution_version == '18.04'
+    - host_arch == 'armhf'
 
 - name: Copy LF Docker configuration
   block:
