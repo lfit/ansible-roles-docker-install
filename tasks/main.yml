@@ -68,9 +68,11 @@
         state: present
         update_cache: true
   when: ansible_distribution == 'Ubuntu'
+  when: docker_repo_channel == 'edge'
+  when: host_arch == "armhf"
   become: true
-  when: docker_repo_channel: 'edge'
-  become: true
+  
+  
 
 - name: Copy LF Docker configuration
   block:
