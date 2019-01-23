@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49a97556_11caa143",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2019-01-23T20:29:32Z",
+      "side": 1,
+      "message": "Rebasing is not part of the changeset. Please remove this from the commit message.",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "9e98d20158f4a172c49fa209c117406ef5911a88",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0538a0b3_4a587647",
+        "filename": "tasks/main.yml",
+        "patchSetId": 7
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2019-01-23T20:29:32Z",
+      "side": 1,
+      "message": "This whole block should be located with the other \"Checking...\" tasks. Please insert it around line 25.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 26
+      },
+      "revId": "9e98d20158f4a172c49fa209c117406ef5911a88",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
