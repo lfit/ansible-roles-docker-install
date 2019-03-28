@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7559a3cf_001d2786",
+        "filename": "tasks/main.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2019-03-28T14:04:16Z",
+      "side": 1,
+      "message": "You changed the fact from armhf to arm64 but didn\u0027t update all uses of the fact",
+      "revId": "ead89f92b3f36924e4819cf8c6f4ad89cfb8435f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
