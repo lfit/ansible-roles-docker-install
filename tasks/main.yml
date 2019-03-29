@@ -6,30 +6,22 @@
 
 - name: "Checking for aarch64"
   set_fact:
-    host_arch: "armhf"
+    host_arch: "arm64"
   when: "'aarch64' in ansible_architecture"
 
 - name: "Checking for Centos docker version"
   set_fact:
-    docker_ce_name: 'docker-ce-{{centos_docker_version}}'
+    docker_ce_name: 'docker-ce-{{ centos_docker_version }}'
   when:
     - ansible_os_family == 'RedHat'
     - centos_docker_version != 'latest'
 
 - name: "Checking for Ubuntu docker version"
   set_fact:
-    docker_ce_name: 'docker-ce={{ubuntu_docker_version}}'
+    docker_ce_name: 'docker-ce={{ ubuntu_docker_version }}'
   when:
     - ansible_distribution == 'Ubuntu'
     - ubuntu_docker_version != 'latest'
-
-- name: "Checking for Docker repo channel"
-  set_fact:
-    docker_repo_channel: 'edge'
-  when:
-    - ansible_distribution == 'Ubuntu'
-    - ansible_distribution_version == '18.04'
-    - host_arch == 'armhf'
 
 - name: Install Docker (RedHat)
   block:
@@ -46,7 +38,7 @@
         mode: 0644
     - name: Install Docker CE
       yum:
-        name: '{{docker_ce_name}}'
+        name: '{{ docker_ce_name }}'
         state: present
         update_cache: true
   when: ansible_os_family == 'RedHat'
@@ -68,11 +60,11 @@
         state: present
     - name: Add Docker apt-repository
       apt_repository:
-        repo: 'deb [arch={{host_arch}}] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} {{docker_repo_channel}}'
+        repo: 'deb [arch={{ host_arch }}] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} {{ docker_repo_channel }}'
         state: present
     - name: Install Docker CE
       apt:
-        name: '{{docker_ce_name}}'
+        name: '{{ docker_ce_name }}'
         state: present
         update_cache: true
   when: ansible_distribution == 'Ubuntu'
@@ -92,11 +84,11 @@
         owner: root
         group: root
         mode: 0600
-    - name: 'Set mtu to {{mtu}}'
+    - name: 'Set mtu to {{ mtu }}'
       lineinfile:
         path: /etc/docker/daemon.json
         regexp: '^  "mtu":'
-        line: '  "mtu": {{mtu}},'
+        line: '  "mtu": {{ mtu }},'
   become: true
 
 # The systemd file on Ubuntu system passes `-H fd://` which seems to break
