@@ -91,15 +91,23 @@
         line: '  "mtu": {{ mtu }},'
   become: true
 
-# The systemd file on Ubuntu system passes `-H fd://` which seems to break
-# and prevent Docker from coming online. Use the same ExecStart line as
-# Docker CE CentOS does to fix the file.
+# There is a known bug with using a daemon.json file and passing the default
+# cli options to the daemon. We must replace the ExecStart command with one
+# that does not have any options.
 - name: Fix broken systemd file on Ubuntu
   lineinfile:
     path: /lib/systemd/system/docker.service
     regexp: '^ExecStart='
     line: 'ExecStart=/usr/bin/dockerd'
   when: ansible_distribution == 'Ubuntu'
+  become: true
+
+- name: Fix broken systemd file on Red Hat
+  lineinfile:
+    path: /usr/lib/systemd/system/docker.service
+    regexp: '^ExecStart='
+    line: 'ExecStart=/usr/bin/dockerd'
+  when: ansible_os_family == 'RedHat'
   become: true
 
 - name: Enable Docker service
