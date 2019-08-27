@@ -1,0 +1,7 @@
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Code-Review+2: Aric Gardner <agardner@linuxfoundation.org>
+Submitted-by: Aric Gardner <agardner@linuxfoundation.org>
+Submitted-at: Tue, 27 Aug 2019 20:17:10 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/c/ansible/roles/docker-install/+/16693
+Project: ansible/roles/docker-install
+Branch: refs/heads/master
