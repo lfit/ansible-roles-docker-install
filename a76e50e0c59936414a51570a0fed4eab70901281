@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a7d087a_fec90abd",
+        "filename": "tox.ini",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2019-12-17T18:40:57Z",
+      "side": 1,
+      "message": "Not sure if this helps at all or what the implication of installing it on non-CentOS systems but let\u0027s see if the build still fails with this.",
+      "revId": "a76e50e0c59936414a51570a0fed4eab70901281",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
