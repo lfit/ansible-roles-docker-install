@@ -25,8 +25,6 @@ provisioner:
   name: ansible
   inventory:
     group_vars:
-      centos:
-        docker_service_enable: false
       centos_version:
         centos_docker_version: 18.06.1.ce
       ubuntu_version:
