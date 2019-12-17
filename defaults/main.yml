@@ -1,5 +1,4 @@
 ---
-docker_service_enable: true
 mtu: 1500
 docker_ce_name: docker-ce
 docker_repo_channel: stable
