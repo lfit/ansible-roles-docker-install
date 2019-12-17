@@ -112,5 +112,5 @@
 
 - name: Enable Docker service
   service: name=docker enabled=true
-  when: docker_service_enable
+  ignore_errors: true
   become: true
