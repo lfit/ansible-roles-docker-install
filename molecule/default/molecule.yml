@@ -3,8 +3,9 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
+lint: |
+  set -e
+  yamllint .
 platforms:
   - name: centos7
     image: centos:7
@@ -31,8 +32,9 @@ provisioner:
         centos_docker_version: 18.06.1.ce
       ubuntu_version:
         ubuntu_docker_version: 18.06.1~ce~3-0~ubuntu
-  lint:
-    name: ansible-lint
+  lint: |
+    set -e
+    ansible-lint
 scenario:
   name: default
 verifier:
