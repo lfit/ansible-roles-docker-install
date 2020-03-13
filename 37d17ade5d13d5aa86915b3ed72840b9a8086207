@@ -22,6 +22,30 @@
       "revId": "37d17ade5d13d5aa86915b3ed72840b9a8086207",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83d56ce5_1eb95e7c",
+        "filename": "molecule/default/molecule.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2020-03-13T18:12:15Z",
+      "side": 1,
+      "message": "Anil advised me we didn\u0027t need both. After running some tests, it looks like he\u0027s correct. Ansible-lint looks like it catches anything that yamllint catches.",
+      "parentUuid": "438b8915_0de73de6",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 26
+      },
+      "revId": "37d17ade5d13d5aa86915b3ed72840b9a8086207",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
     }
   ]
 }
