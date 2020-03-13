@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "438b8915_0de73de6",
+        "filename": "molecule/default/molecule.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2020-03-13T18:04:28Z",
+      "side": 1,
+      "message": "I think we should still do yamllint in addition to ansible-lint my understanding is one is about syntax other is about style?",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 26
+      },
+      "revId": "37d17ade5d13d5aa86915b3ed72840b9a8086207",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
