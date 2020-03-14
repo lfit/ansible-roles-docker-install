@@ -46,6 +46,30 @@
       "revId": "37d17ade5d13d5aa86915b3ed72840b9a8086207",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "255451cd_ce3867db",
+        "filename": "molecule/default/molecule.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2020-03-14T11:42:58Z",
+      "side": 1,
+      "message": "Alright if you guys think so. Molecule\u0027s own docs suggest having both for some reason.",
+      "parentUuid": "83d56ce5_1eb95e7c",
+      "range": {
+        "startLine": 8,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 26
+      },
+      "revId": "37d17ade5d13d5aa86915b3ed72840b9a8086207",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
