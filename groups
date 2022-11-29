@@ -1,4 +1,5 @@
-# UUID                                                                                     	Group Name
+# UUID                                  	Group Name
 #
-2b0c59dc15e47aa6bd2e3f6101e8902ad4d1e4e0                                                   	saml/lf-gerrit-ansible-roles-docker-install-committers
-d68d00a2419f8ff627fc120cf9dd9055ae422153                                                   	GitHub Replication
+2b0c59dc15e47aa6bd2e3f6101e8902ad4d1e4e0	saml/lf-gerrit-ansible-roles-docker-install-committers
+824623e509ec71c6574dad386e59e709eaedd178	Gitlab Replication
+d68d00a2419f8ff627fc120cf9dd9055ae422153	GitHub Replication
