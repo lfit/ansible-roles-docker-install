@@ -12,15 +12,32 @@ platforms:
     image: centos:7
     groups:
       - centos
+      - centos_version
   - name: centos7-version
     image: centos:7
     groups:
       - centos
       - centos_version
-  - name: ubuntu1604
-    image: ubuntu:16.04
-  - name: ubuntu1604-version
-    image: ubuntu:16.04
+  - name: centos8
+    image: quay.io/centos/centos:stream8
+    groups:
+      - centos
+      - centos_version
+  - name: centos9
+    image: quay.io/centos/centos:stream9
+    groups:
+      - centos
+      - centos_version
+  - name: ubuntu1804
+    image: ubuntu:18.04
+  - name: ubuntu1804-version
+    image: ubuntu:18.04
+    groups:
+      - ubuntu_version
+  - name: ubuntu2004
+    image: ubuntu:20.04
+  - name: ubuntu2004-version
+    image: ubuntu:20.04
     groups:
       - ubuntu_version
 provisioner:
