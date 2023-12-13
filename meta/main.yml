@@ -1,5 +1,7 @@
 ---
 galaxy_info:
+  namespace: lfit
+  role_name: docker_install
   author: Linux Foundation Release Engineering
   description: Install Docker CE on Debian and RedHat systems.
   company: The Linux Foundation
@@ -12,9 +14,12 @@ galaxy_info:
     - name: EL
       versions:
         - 7
+        - 8
     - name: Ubuntu
       versions:
         - xenial
+        - bionic
+        - focal
 
   galaxy_tags:
     - containers
