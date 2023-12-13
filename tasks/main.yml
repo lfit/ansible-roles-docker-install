@@ -18,12 +18,12 @@
 
 - name: "Checking for Ubuntu docker version"
   set_fact:
-    docker_ce_name: 'docker-ce={{ ubuntu_docker_version }}'
+    docker_ce_name: 'docker-ce-{{ ubuntu_docker_version }}'
   when:
     - ansible_distribution == 'Ubuntu'
     - ubuntu_docker_version != 'latest'
 
-- name: Install Docker (RedHat)
+- name: Install Docker (RedHat 7)
   block:
     - name: Install Docker requirements
       yum:
@@ -41,19 +41,50 @@
         name: '{{ docker_ce_name }}'
         state: present
         update_cache: true
+      when: ansible_distribution_major_version == "7"
   when: ansible_os_family == 'RedHat'
+  become: true
+
+- name: Install Docker (RedHat 8)
+  block:
+    - name: Remove confliting packages with Docker-ce
+      yum:
+        name:
+          - buildah
+          - podman
+          - runc
+        state: absent
+    - name: Install Docker requirements
+      yum:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - container-selinux
+        state: present
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version >= "8"
   become: true
 
 - name: Install Docker (Ubuntu)
   block:
-    - name: Install Docker requirements
+    - name: Install Common Docker requirements
       apt:
         name:
           - apt-transport-https
           - ca-certificates
-          - curl
+        state: present
+    - name: Install software properties common
+      apt:
+        name:
           - software-properties-common
         state: present
+      when: ansible_distribution_version == "18.04"
+    - name: Install software properties common for recent releases
+      apt:
+        name:
+          - python3-software-properties
+        state: present
+      when: ansible_distribution_version >= "20.04"
     - name: Add Docker apt-key
       apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
@@ -111,6 +142,10 @@
   become: true
 
 - name: Enable Docker service
-  service: name=docker enabled=true
+  service:
+    name: docker
+    state: started
+    enabled: true
   ignore_errors: true
+  when: ansible_os_family == 'RedHat'
   become: true
