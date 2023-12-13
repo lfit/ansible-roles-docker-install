@@ -18,12 +18,12 @@
 
 - name: "Checking for Ubuntu docker version"
   set_fact:
-    docker_ce_name: 'docker-ce={{ ubuntu_docker_version }}'
+    docker_ce_name: 'docker-ce-{{ ubuntu_docker_version }}'
   when:
     - ansible_distribution == 'Ubuntu'
     - ubuntu_docker_version != 'latest'
 
-- name: Install Docker (RedHat)
+- name: Install Docker (RedHat 7)
   block:
     - name: Install Docker requirements
       yum:
@@ -41,7 +41,25 @@
         name: '{{ docker_ce_name }}'
         state: present
         update_cache: true
-  when: ansible_os_family == 'RedHat'
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"
+  become: true
+
+- name: Install Docker (RedHat 8)
+  block:
+    - name: Remove confliting packages with Docker-ce
+      yum:
+        name:
+          - buildah
+          - podman
+          - runc
+        state: absent
+    - name: Install Docker requirements
+      yum:
+        name:
+          - docker-ce docker-ce-cli
+          - containerd.io
+        state: present
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version >= "8"
   become: true
 
 - name: Install Docker (Ubuntu)
@@ -107,10 +125,11 @@
     path: /usr/lib/systemd/system/docker.service
     regexp: '^ExecStart='
     line: 'ExecStart=/usr/bin/dockerd'
-  when: ansible_os_family == 'RedHat'
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"
   become: true
 
 - name: Enable Docker service
   service: name=docker enabled=true
   ignore_errors: true
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"
   become: true
