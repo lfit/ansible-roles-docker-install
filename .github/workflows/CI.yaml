@@ -1,0 +1,61 @@
+---
+name: CI Verify Ansible roles with molecule
+"on":
+  pull_request:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "0 7 * * 0"
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install lint dependencies.
+        run: pip3 install yamllint
+
+      - name: Lint code.
+        run: |
+          yamllint .
+
+  molecule:
+    name: Molecule
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        distro:
+          - geerlingguy/docker-centos7-ansible:latest
+          - geerlingguy/docker-centos8-ansible:latest
+          - ubuntu1804
+          - ubuntu2004
+          - ubuntu2204
+      fail-fast: false
+
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install test dependencies.
+        run: pip3 install ansible ansible-lint molecule-plugins[docker] docker
+
+      - name: Run Molecule tests.
+        run: molecule test
+        env:
+          PY_COLORS: "1"
+          ANSIBLE_FORCE_COLOR: "1"
+          MOLECULE_DISTRO: ${{ matrix.distro }}

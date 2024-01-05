@@ -1,0 +1,31 @@
+---
+- name: "Checking for Centos docker version"
+  set_fact:
+    docker_ce_name: 'docker-ce-{{ centos_docker_version }}'
+  when:
+    - ansible_os_family == 'RedHat'
+    - centos_docker_version != 'latest'
+
+- debug:
+    var: docker_ce_name
+
+- name: Install Docker (RedHat)
+  block:
+    - name: Install Docker requirements
+      yum:
+        name:
+          - device-mapper-persistent-data
+          - lvm2
+        state: present
+    - name: Add Docker repository
+      get_url:
+        url: https://download.docker.com/linux/centos/docker-ce.repo
+        dest: /etc/yum.repos.d/docker-ce.repo
+        mode: 0644
+    - name: Install Docker CE
+      yum:
+        name: '{{ docker_ce_name }}'
+        state: present
+        update_cache: true
+  when: ansible_os_family == 'RedHat'
+  become: true

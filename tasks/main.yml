@@ -9,66 +9,13 @@
     host_arch: "arm64"
   when: "'aarch64' in ansible_architecture"
 
-- name: "Checking for Centos docker version"
-  set_fact:
-    docker_ce_name: 'docker-ce-{{ centos_docker_version }}'
-  when:
-    - ansible_os_family == 'RedHat'
-    - centos_docker_version != 'latest'
 
-- name: "Checking for Ubuntu docker version"
-  set_fact:
-    docker_ce_name: 'docker-ce={{ ubuntu_docker_version }}'
-  when:
-    - ansible_distribution == 'Ubuntu'
-    - ubuntu_docker_version != 'latest'
 
-- name: Install Docker (RedHat)
-  block:
-    - name: Install Docker requirements
-      yum:
-        name:
-          - device-mapper-persistent-data
-          - lvm2
-        state: present
-    - name: Add Docker repository
-      get_url:
-        url: https://download.docker.com/linux/centos/docker-ce.repo
-        dest: /etc/yum.repos.d/docker-ce.repo
-        mode: 0644
-    - name: Install Docker CE
-      yum:
-        name: '{{ docker_ce_name }}'
-        state: present
-        update_cache: true
-  when: ansible_os_family == 'RedHat'
-  become: true
-
-- name: Install Docker (Ubuntu)
-  block:
-    - name: Install Docker requirements
-      apt:
-        name:
-          - apt-transport-https
-          - ca-certificates
-          - curl
-          - software-properties-common
-        state: present
-    - name: Add Docker apt-key
-      apt_key:
-        url: https://download.docker.com/linux/ubuntu/gpg
-        state: present
-    - name: Add Docker apt-repository
-      apt_repository:
-        repo: 'deb [arch={{ host_arch }}] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} {{ docker_repo_channel }}'
-        state: present
-    - name: Install Docker CE
-      apt:
-        name: '{{ docker_ce_name }}'
-        state: present
-        update_cache: true
-  when: ansible_distribution == 'Ubuntu'
-  become: true
+- include_tasks: '{{ item }}'
+  with_first_found:
+    - '{{ ansible_os_family }}-{{ ansible_architecture }}.yml'
+    - '{{ ansible_distribution }}.yml'
+    - '{{ ansible_os_family }}.yml'
 
 - name: Copy LF Docker configuration
   block:

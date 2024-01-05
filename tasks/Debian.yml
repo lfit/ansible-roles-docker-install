@@ -1,0 +1,36 @@
+---
+- name: "Checking for Ubuntu docker version"
+  set_fact:
+    docker_ce_name: 'docker-ce={{ ubuntu_docker_version }}'
+  when:
+    - ansible_distribution == 'Ubuntu'
+    - ubuntu_docker_version != 'latest'
+
+- debug:
+    var: docker_ce_name
+
+- name: Install Docker (Ubuntu)
+  block:
+    - name: Install Docker requirements
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        state: present
+    - name: Add Docker apt-key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+    - name: Add Docker apt-repository
+      apt_repository:
+        repo: 'deb [arch={{ host_arch }}] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} {{ docker_repo_channel }}'
+        state: present
+    - name: Install Docker CE
+      apt:
+        name: docker-ce
+        state: latest
+        update_cache: true
+  when: ansible_distribution == 'Ubuntu'
+  become: true

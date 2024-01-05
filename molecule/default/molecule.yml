@@ -10,27 +10,24 @@ lint: |
 platforms:
   - name: centos7
     image: centos:7
-    groups:
-      - centos
   - name: centos7-version
     image: centos:7
-    groups:
-      - centos
-      - centos_version
-  - name: ubuntu1604
-    image: ubuntu:16.04
-  - name: ubuntu1604-version
-    image: ubuntu:16.04
-    groups:
-      - ubuntu_version
+  - name: centos8
+    image: quay.io/centos/centos:stream8
+  - name: centos8-version
+    image: quay.io/centos/centos:stream8
+  - name: ubuntu2004
+    image: ubuntu:20.04
+  - name: ubuntu2004-version
+    image: ubuntu:20.04
 provisioner:
   name: ansible
   inventory:
     group_vars:
       centos_version:
-        centos_docker_version: 18.06.1.ce
+        centos_docker_version: 24.0.7-1
       ubuntu_version:
-        ubuntu_docker_version: 18.06.1~ce~3-0~ubuntu
+        ubuntu_docker_version: 5:24.0.7-1~ubuntu.20.04~focal
 scenario:
   name: default
 verifier:
