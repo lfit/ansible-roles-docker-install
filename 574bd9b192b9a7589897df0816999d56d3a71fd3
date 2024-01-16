@@ -34,7 +34,7 @@
       },
       "applicabilityExpressionResult": {},
       "submittabilityExpressionResult": {
-        "value": {"expression":{"expressionString":"label:Code-Review=MAX,user=non_uploader AND -label:Code-Review=MIN"},"status":"FAIL","errorMessage":{"value":null},"passingAtoms":[],"failingAtoms":["label:Code-Review=MAX,user=non_uploader","label:Code-Review=MIN"]}
+        "value": {"expression":{"expressionString":"label:Code-Review=MAX,user=non_uploader AND -label:Code-Review=MIN"},"status":"PASS","errorMessage":{"value":null},"passingAtoms":["label:Code-Review=MAX,user=non_uploader"],"failingAtoms":["label:Code-Review=MIN"]}
       },
       "overrideExpressionResult": {},
       "patchSetCommitId": "574bd9b192b9a7589897df0816999d56d3a71fd3",
@@ -52,14 +52,14 @@
         },
         "applicabilityExpression": {},
         "submittabilityExpression": {
-          "expressionString": "label:Verified\u003dMAX,user\u003dlfit.required.gha AND (label:Verified\u003dMAX,lf-jobbuilder OR label:Verified\u003dMAX,lfit.github.gerrit) AND -label:Verified\u003dMIN"
+          "expressionString": "label:Verified\u003dMAX,user\u003dlfit.required.gha AND label:Verified\u003dMAX,count\u003e\u003d2 AND -label:Verified\u003dMIN"
         },
         "overrideExpression": {},
         "allowOverrideInChildProjects": false
       },
       "applicabilityExpressionResult": {},
       "submittabilityExpressionResult": {
-        "value": {"expression":{"expressionString":"label:Verified=MAX,user=lfit.required.gha AND (label:Verified=MAX,lf-jobbuilder OR label:Verified=MAX,lfit.github.gerrit) AND -label:Verified=MIN"},"status":"FAIL","errorMessage":{"value":null},"passingAtoms":["label:Verified=MAX,user=lfit.required.gha"],"failingAtoms":["label:Verified=MIN","label:Verified=MAX,lf-jobbuilder","label:Verified=MAX,lfit.github.gerrit"]}
+        "value": {"expression":{"expressionString":"label:Verified=MAX,user=lfit.required.gha AND label:Verified=MAX,count>=2 AND -label:Verified=MIN"},"status":"PASS","errorMessage":{"value":null},"passingAtoms":["label:Verified=MAX,user=lfit.required.gha","label:Verified=MAX,count>=2"],"failingAtoms":["label:Verified=MIN"]}
       },
       "overrideExpressionResult": {},
       "patchSetCommitId": "574bd9b192b9a7589897df0816999d56d3a71fd3",
