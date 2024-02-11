@@ -1,53 +1,55 @@
 ---
 - name: "Checking for x86_64"
-  set_fact:
+  ansible.builtin.set_fact:
     host_arch: "amd64"
   when: "'x86_64' in ansible_architecture"
 
 - name: "Checking for aarch64"
-  set_fact:
+  ansible.builtin.set_fact:
     host_arch: "arm64"
   when: "'aarch64' in ansible_architecture"
 
 - name: "Checking for Centos docker version"
-  set_fact:
+  ansible.builtin.set_fact:
     docker_ce_name: 'docker-ce-{{ centos_docker_version }}'
   when:
     - ansible_os_family == 'RedHat'
     - centos_docker_version != 'latest'
 
 - name: "Checking for Ubuntu docker version"
-  set_fact:
+  ansible.builtin.set_fact:
     docker_ce_name: 'docker-ce={{ ubuntu_docker_version }}'
   when:
     - ansible_distribution == 'Ubuntu'
     - ubuntu_docker_version != 'latest'
 
 - name: Install Docker (RedHat 7)
+  become: true
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"
   block:
     - name: Install Docker requirements
-      yum:
+      ansible.builtin.yum:
         name:
           - device-mapper-persistent-data
           - lvm2
         state: present
     - name: Add Docker repository
-      get_url:
+      ansible.builtin.get_url:
         url: https://download.docker.com/linux/centos/docker-ce.repo
         dest: /etc/yum.repos.d/docker-ce.repo
         mode: 0644
     - name: Install Docker CE
-      yum:
+      ansible.builtin.yum:
         name: '{{ docker_ce_name }}'
         state: present
         update_cache: true
-  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"
-  become: true
 
 - name: Install Docker (RedHat 8)
+  become: true
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version >= "8"
   block:
     - name: Remove confliting packages with Docker-ce
-      yum:
+      ansible.builtin.yum:
         name:
           - atomic-registries
           - buildah
@@ -60,12 +62,12 @@
         state: absent
         update_cache: true
     - name: Add Docker repository
-      get_url:
+      ansible.builtin.get_url:
         url: https://download.docker.com/linux/centos/docker-ce.repo
         dest: /etc/yum.repos.d/docker-ce.repo
         mode: 0644
     - name: Install Docker requirements
-      yum:
+      ansible.builtin.yum:
         name:
           - docker-ce
           - docker-ce-cli
@@ -75,13 +77,13 @@
           - docker-compose-plugin
         state: present
         update_cache: true
-  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version >= "8"
-  become: true
 
 - name: Install Docker (Ubuntu)
+  become: true
+  when: ansible_distribution == 'Ubuntu'
   block:
     - name: Install Docker requirements
-      apt:
+      ansible.builtin.package:
         name:
           - apt-transport-https
           - ca-certificates
@@ -89,15 +91,15 @@
         state: present
         update_cache: true
     - name: Add Docker apt-key
-      apt_key:
+      ansible.builtin.apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
     - name: Add Docker apt-repository
-      apt_repository:
+      ansible.builtin.apt_repository:
         repo: 'deb [arch={{ host_arch }}] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} {{ docker_repo_channel }}'
         state: present
     - name: Install Docker CE
-      apt:
+      ansible.builtin.package:
         name:
           - docker-ce
           - docker-ce-cli
@@ -107,35 +109,33 @@
           - docker-compose-plugin
         state: present
         update_cache: true
-  when: ansible_distribution == 'Ubuntu'
-  become: true
 
 - name: Copy LF Docker configuration
+  become: true
   block:
     - name: Ensure /etc/docker directory exists
-      file:
+      ansible.builtin.file:
         path: /etc/docker
         state: directory
         mode: 0700
     - name: Copy LF Docker configuration
-      copy:
+      ansible.builtin.copy:
         src: daemon.json
         dest: /etc/docker/daemon.json
         owner: root
         group: root
         mode: 0600
     - name: 'Set mtu to {{ mtu }}'
-      lineinfile:
+      ansible.builtin.lineinfile:
         path: /etc/docker/daemon.json
         regexp: '^  "mtu":'
         line: '  "mtu": {{ mtu }},'
-  become: true
 
 # There is a known bug with using a daemon.json file and passing the default
 # cli options to the daemon. We must replace the ExecStart command with one
 # that does not have any options.
 - name: Fix broken systemd file on Ubuntu
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /lib/systemd/system/docker.service
     regexp: '^ExecStart='
     line: 'ExecStart=/usr/bin/dockerd'
@@ -143,7 +143,7 @@
   become: true
 
 - name: Fix broken systemd file on Red Hat
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /usr/lib/systemd/system/docker.service
     regexp: '^ExecStart='
     line: 'ExecStart=/usr/bin/dockerd'
@@ -151,7 +151,7 @@
   become: true
 
 - name: Enable Docker service
-  systemd:
+  ansible.builtin.systemd:  # noqa ignore-errors
     name: docker
     enabled: true
   ignore_errors: true
