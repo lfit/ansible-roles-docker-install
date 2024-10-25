@@ -1,0 +1,7 @@
+Code-Review+2: Andrew Grimberg <agrimberg@linuxfoundation.org>
+Verified+1: LFIT Required GHA <releng+lfit-required-gha@linuxfoundation.org>
+Submitted-by: Andrew Grimberg <agrimberg@linuxfoundation.org>
+Submitted-at: Fri, 25 Oct 2024 17:39:36 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/c/ansible/roles/docker-install/+/73254
+Project: ansible/roles/docker-install
+Branch: refs/heads/master
