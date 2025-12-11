@@ -2,55 +2,21 @@
 dependency:
   name: galaxy
 driver:
-  name: docker
+  name: podman
 platforms:
-  - name: centos7
-    image: centos:7
-    groups:
-      - centos
-      - centos_version
-  - name: centos7-version
-    image: centos:7
-    groups:
-      - centos
-      - centos_version
-  - name: centos8
-    image: quay.io/centos/centos:stream8
-    groups:
-      - centos
-      - centos_version
-  - name: centos9
-    image: quay.io/centos/centos:stream9
-    groups:
-      - centos
-      - centos_version
-  - name: ubuntu1804
-    image: ubuntu:18.04
-  - name: ubuntu1804-version
-    image: ubuntu:18.04
-    groups:
-      - ubuntu_version
-  - name: ubuntu2004
-    image: ubuntu:20.04
-  - name: ubuntu2004-version
-    image: ubuntu:20.04
-    groups:
-      - ubuntu_version
   - name: ubuntu2204
     image: ubuntu:22.04
-  - name: ubuntu2204-version
-    image: ubuntu:22.04
-    groups:
-      - ubuntu_version
+  - name: ubuntu2404
+    image: ubuntu:24.04
 provisioner:
   name: ansible
   inventory:
-    group_vars:
-      centos_version:
-        centos_docker_version: 18.06.1.ce
-      ubuntu_version:
-        ubuntu_docker_version: 18.06.1~ce~3-0~ubuntu
+    host_vars:
+      ubuntu2204:
+        ansible_python_interpreter: /usr/bin/python3
+      ubuntu2404:
+        ansible_python_interpreter: /usr/bin/python3
 scenario:
   name: default
 verifier:
-  name: testinfra
+  name: ansible

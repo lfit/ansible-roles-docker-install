@@ -2,30 +2,30 @@
 - name: "Checking for x86_64"
   ansible.builtin.set_fact:
     host_arch: "amd64"
-  when: "'x86_64' in ansible_architecture"
+  when: "'x86_64' in ansible_facts['architecture']"
 
 - name: "Checking for aarch64"
   ansible.builtin.set_fact:
     host_arch: "arm64"
-  when: "'aarch64' in ansible_architecture"
+  when: "'aarch64' in ansible_facts['architecture']"
 
 - name: "Checking for Centos docker version"
   ansible.builtin.set_fact:
     docker_ce_name: 'docker-ce-{{ centos_docker_version }}'
   when:
-    - ansible_os_family == 'RedHat'
+    - ansible_facts['os_family'] == 'RedHat'
     - centos_docker_version != 'latest'
 
 - name: "Checking for Ubuntu docker version"
   ansible.builtin.set_fact:
     docker_ce_name: 'docker-ce={{ ubuntu_docker_version }}'
   when:
-    - ansible_distribution == 'Ubuntu'
+    - ansible_facts['distribution'] == 'Ubuntu'
     - ubuntu_docker_version != 'latest'
 
 - name: Install Docker (RedHat 7)
   become: true
-  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == "7"
+  when: ansible_facts['os_family'] == 'RedHat' and ansible_facts['distribution_major_version'] == "7"
   block:
     - name: Install Docker requirements
       ansible.builtin.yum:
@@ -46,7 +46,7 @@
 
 - name: Install Docker (RedHat 8)
   become: true
-  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version >= "8"
+  when: ansible_facts['os_family'] == 'RedHat' and ansible_facts['distribution_major_version'] >= "8"
   block:
     - name: Remove confliting packages with Docker-ce
       ansible.builtin.yum:
@@ -80,7 +80,7 @@
 
 - name: Install Docker (Ubuntu)
   become: true
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_facts['distribution'] == 'Ubuntu'
   block:
     - name: Install Docker requirements
       ansible.builtin.package:
@@ -96,7 +96,7 @@
         state: present
     - name: Add Docker apt-repository
       ansible.builtin.apt_repository:
-        repo: 'deb [arch={{ host_arch }}] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} {{ docker_repo_channel }}'
+        repo: 'deb [arch={{ host_arch }}] https://download.docker.com/linux/ubuntu {{ ansible_facts["distribution_release"] }} {{ docker_repo_channel }}'
         state: present
     - name: Install Docker CE
       ansible.builtin.package:
@@ -139,7 +139,7 @@
     path: /lib/systemd/system/docker.service
     regexp: '^ExecStart='
     line: 'ExecStart=/usr/bin/dockerd'
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_facts['distribution'] == 'Ubuntu'
   become: true
 
 - name: Fix broken systemd file on Red Hat
@@ -147,7 +147,7 @@
     path: /usr/lib/systemd/system/docker.service
     regexp: '^ExecStart='
     line: 'ExecStart=/usr/bin/dockerd'
-  when: ansible_os_family == 'RedHat'
+  when: ansible_facts['os_family'] == 'RedHat'
   become: true
 
 - name: Enable Docker service
@@ -155,5 +155,5 @@
     name: docker
     enabled: true
   ignore_errors: true
-  when: ansible_os_family == 'RedHat'
+  when: ansible_facts['os_family'] == 'RedHat'
   become: true
