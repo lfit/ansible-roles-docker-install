@@ -25,6 +25,4 @@ galaxy_info:
     - containers
     - docker
 
-dependencies:
-  - role: community.general
-    version: ">=10.1.0"
+dependencies: []
